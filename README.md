@@ -1,23 +1,14 @@
 # Thermo XCalibur Method File Reader
 
-[![Build Status](https://travis-ci.org/nickdelgrosso/XCaliburMethodReader.svg?branch=master)](https://travis-ci.org/nickdelgrosso/XCaliburMethodReader)
-[![Coverage Status](https://coveralls.io/repos/github/nickdelgrosso/XCaliburMethodReader/badge.svg?branch=master)](https://coveralls.io/github/nickdelgrosso/XCaliburMethodReader?branch=master)
-
 A simple command-line program for mass spectrometry researchers that extracts and converts data from Thermo XCalibur Method (.meth) files.
 
 Uses the [olefile](https://olefile.readthedocs.io/en/latest/Howto.html) Python package to extract the data.
-
-## Installation
-
-```
-pip install XCaliburMethodReader
-```
 
 ## Usage
 
 Help Text:
 ```
->>> XCaliburMethodReader --help
+>>> python XCaliburMethodReader.py --help
 
 usage: XCaliburMethodReader.py [-h] [-s STREAM] [--to {text,xml,json}]
                                [--output OUTPUT]
@@ -42,7 +33,7 @@ optional arguments:
 
 Print File's Directory:
 ```bash
->>> XCaliburMethodReader HelaStandard120.meth
+>>> python XCaliburMethodReader.py HelaStandard120.meth
 
 Proxeon_EASY-nLC
 LCQ Header
@@ -52,7 +43,7 @@ Thermo Exactive
 
 Pretty-Print Data
 ```bash
->>> XCaliburMethodReader HelaStandard120.meth -s "Thermo Exactive"
+>>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive"
 
                            Method of Q Exactive HF-X
 
@@ -71,7 +62,7 @@ Extract and/or convert Data to machine-readable formats
 
 XML:
 ```bash
->>> XCaliburMethodReader HelaStandard120.meth -s "Thermo Exactive" --to xml
+>>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive" --to xml
 
 <?xml version="1.0" encoding="utf-16" standalone="yes"?>
 <InstrumentSetupMethod guid="a0742e44-9001-4c98-ac3c-7e5e366c6196" TargetInstrument="Deukalion" version="1.1" FullInternalName="Framework.Method" date="2018-11-06 10:38:12Z">
@@ -85,7 +76,7 @@ XML:
 
 JSON:
 ```bash
->>> XCaliburMethodReader HelaStandard120.meth -s "Thermo Exactive" --to json
+>>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive" --to json
 
 {
    "InstrumentSetupMethod": {
@@ -96,10 +87,6 @@ JSON:
 ...
 ```
 
-Save output to a file:
-```bash
->>> XCaliburMethodReader HelaStandard120.meth -s "Thermo Exactive" --to json -o myfile.json
-```
 
 ## Todo
 

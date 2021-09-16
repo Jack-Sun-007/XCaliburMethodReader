@@ -1,7 +1,0 @@
-.idea
-venv
-*.pyc
-dist
-data
-build
-.ipynb_checkpoints

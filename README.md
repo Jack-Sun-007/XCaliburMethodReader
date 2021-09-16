@@ -1,12 +1,18 @@
-# Thermo XCalibur Method File Reader
+# Thermo XCalibur Method File Reader  .meth方法文件查看
 
 A simple command-line program for mass spectrometry researchers that extracts and converts data from Thermo XCalibur Method (.meth) files.
 
+一个简单的命令行程序，能够从Thermo XCalibur Method (.meth) 文件中提取数据
+
 Uses the [olefile](https://olefile.readthedocs.io/en/latest/Howto.html) Python package to extract the data.
 
-## Usage
+使用 [olefile](https://olefile.readthedocs.io/en/latest/Howto.html) Python 包提取数据
+
+## Usage  用法
 
 Help Text:
+
+帮助
 ```
 >>> python XCaliburMethodReader.py --help
 
@@ -32,6 +38,8 @@ optional arguments:
 ```
 
 Print File's Directory:
+
+输出.meth方法文件里所包含的目录
 ```bash
 >>> python XCaliburMethodReader.py HelaStandard120.meth
 
@@ -42,6 +50,8 @@ Thermo Exactive
 ```
 
 Pretty-Print Data
+
+输出方法数据
 ```bash
 >>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive"
 
@@ -58,37 +68,3 @@ Method duration                                                       120.00 min
 ...
 ```
 
-Extract and/or convert Data to machine-readable formats
-
-XML:
-```bash
->>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive" --to xml
-
-<?xml version="1.0" encoding="utf-16" standalone="yes"?>
-<InstrumentSetupMethod guid="a0742e44-9001-4c98-ac3c-7e5e366c6196" TargetInstrument="Deukalion" version="1.1" FullInternalName="Framework.Method" date="2018-11-06 10:38:12Z">
-  <Description>Method</Description>
-  <Segments>
-    <Segment FullInternalName="Framework.Segment" id="1">
-      <ScanEvent guid="553826f1-95e1-4570-a984-c77b91722f6d" id="1" FullInternalName="Deukalion.TopN.4" DescendantType="Child">
-        <Expanded FullInternalName="bool">false</Expanded>
-...
-```
-
-JSON:
-```bash
->>> python XCaliburMethodReader.py HelaStandard120.meth -s "Thermo Exactive" --to json
-
-{
-   "InstrumentSetupMethod": {
-      "@guid": "a0742e44-9001-4c98-ac3c-7e5e366c6196",
-      "@TargetInstrument": "Deukalion",
-      "@version": "1.1",
-      "@FullInternalName": "Framework.Method",
-...
-```
-
-
-## Todo
-
-  - Get the header stream to read correctly
-  - Provide a metadata extractor  
